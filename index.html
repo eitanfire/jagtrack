@@ -11,6 +11,8 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="css/styles.css" />
 
    <title>JagTrack - Your Academic Success Hub</title>
 </head>
@@ -19,13 +21,17 @@
 <body>
 
 
-   <header>
-       <div>
-           <h1>JagTrack</h1>
-           <h2>Your Academic Success Hub</h2>
-       </div>
-   </header>
-
+<header class="jumbotron jumbotron-fluid">
+<div class="row align-items-center">
+   <div class="col-4">
+       <img src="img/ja-logo.svg" alt="Jefferson Academy Logo" />
+   </div>
+   <div class="col">
+       <h1>JagTrack</h1>
+       <h2>Your Academic Success Hub</h2>
+   </div>
+</div>
+</header>
 
    <div>
        <h2>My 4 Classes</h2>
@@ -34,32 +40,39 @@
    </div>
 
 
-   <!-- This empty div is where you'll add your Bootstrap schedule in Exercise 2 -->
 <div class="container">
-   <div class="row">
+   <div class="row row-content">
        <div class="col-12 col-md-6 col-lg-3">
-           <h4>A Block</h4>
-           <h5>English Literature</h5>
-           <p>8:25 AM - 9:55 AM</p>
-           <a href="#">Go to Canvas →</a>
+           <div class="class-card">
+               <h4>A Block</h4>
+               <h5>English Literature</h5>
+               <p>8:25 AM - 9:55 AM</p>
+               <a href="#">Go to Canvas →</a>
+           </div>
        </div>
        <div class="col-12 col-md-6 col-lg-3">
-           <h4>B Block</h4>
-           <h5>Web Design in HTML & CSS</h5>
-           <p>10:00 AM - 11:30 AM</p>
-           <a href="https://jajags.instructure.com/courses/3438" target="_blank">Go to Canvas →</a>
+           <div class="class-card">
+               <h4>B Block</h4>
+               <h5>Web Design in HTML & CSS</h5>
+               <p>10:00 AM - 11:30 AM</p>
+               <a href="https://jajags.instructure.com/courses/3438" target="_blank">Go to Canvas →</a>
+           </div>
        </div>
        <div class="col-12 col-md-6 col-lg-3">
-           <h4>C Block</h4>
-           <h5>Algebra II</h5>
-           <p>11:35 AM - 1:45 PM</p>
-           <a href="#">Go to Canvas →</a>
+           <div class="class-card">
+               <h4>C Block</h4>
+               <h5>Algebra II</h5>
+               <p>11:35 AM - 1:45 PM</p>
+               <a href="#">Go to Canvas →</a>
+           </div>
        </div>
        <div class="col-12 col-md-6 col-lg-3">
-           <h4>D Block</h4>
-           <h5>Biology</h5>
-           <p>1:50 PM - 3:20 PM</p>
-           <a href="#">Go to Canvas →</a>
+           <div class="class-card">
+               <h4>D Block</h4>
+               <h5>Biology</h5>
+               <p>1:50 PM - 3:20 PM</p>
+               <a href="#">Go to Canvas →</a>
+           </div>
        </div>
    </div>
 </div>
@@ -114,28 +127,32 @@
    </div>
 
 
-   <footer>
-       <div>
-           <h5>Quick Links</h5>
-           <ul>
-               <li><a href="#">Home</a></li>
-               <li><a href="#">My Classes</a></li>
-               <li><a href="#">Resources</a></li>
-               <li><a href="#">Contact</a></li>
-           </ul>
+  <footer>
+   <div class="container">
+       <div class="row">
+           <div class="col-4 col-sm-2 offset-1">
+               <h5>Quick Links</h5>
+               <ul class="list-unstyled">
+                   <li><a href="index.html">Home</a></li>
+                   <li><a href="#">My Classes</a></li>
+                   <li><a href="#">Resources</a></li>
+                   <li><a href="#">Contact</a></li>
+               </ul>
+           </div>
+           <div class="col-6 col-sm-5 text-center">
+               <h5>Connect</h5>
+               <a href="#">Canvas Portal</a> |
+               <a href="#">Study Groups</a> |
+               <a href="#">Help Center</a>
+           </div>
+           <div class="col-sm-4 text-center">
+               <h5>Contact</h5>
+               Jefferson Academy Secondary<br />
+               Email: firstname.lastname@jajags.com
+           </div>
        </div>
-       <div>
-           <h5>Connect</h5>
-           <a href="#">Canvas Portal</a>
-           <a href="#">Email Teacher</a>
-           <a href="#">Study Groups</a>
-           <a href="#">Help Center</a>
-       </div>
-       <div>
-           Jefferson Academy Secondary<br />
-           Email: firstname.lastname@jajags.com
-       </div>
-   </footer>
+   </div>
+</footer>
 
 
    <!-- jQuery must come first, then Popper.js, then the Bootstrap JavaScript plugins.-->

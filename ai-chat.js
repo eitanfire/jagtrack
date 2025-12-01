@@ -1,5 +1,5 @@
-import "./style.css";
-import { HfInference } from "@huggingface/inference";
+import './ai-chat.css';
+import { HfInference } from '@huggingface/inference';
 
 // ============================================
 // CONFIGURATION
@@ -15,10 +15,10 @@ const hf = new HfInference(API_KEY);
 // DOM ELEMENTS
 // ============================================
 
-const chatDisplay = document.getElementById("chat-display");
-const userInput = document.getElementById("user-input");
-const sendButton = document.getElementById("send-button");
-const loadingIndicator = document.getElementById("loading");
+const chatDisplay = document.getElementById('chat-display');
+const userInput = document.getElementById('user-input');
+const sendButton = document.getElementById('send-button');
+const loadingIndicator = document.getElementById('loading');
 // Get the new template elements
 const promptTemplate = document.getElementById('prompt-template');
 const useTemplateButton = document.getElementById('use-template');
@@ -29,8 +29,8 @@ const useTemplateButton = document.getElementById('use-template');
 
 // Function to add a message to the chat display
 function addMessage(content, isUser = false) {
-  const messageDiv = document.createElement("div");
-  messageDiv.className = `message ${isUser ? "user-message" : "ai-message"}`;
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
   messageDiv.textContent = content;
 
   chatDisplay.appendChild(messageDiv);
@@ -41,15 +41,15 @@ function addMessage(content, isUser = false) {
 
 // Function to show/hide loading indicator
 function setLoading(isLoading) {
-  loadingIndicator.style.display = isLoading ? "block" : "none";
+  loadingIndicator.style.display = isLoading ? 'block' : 'none';
   sendButton.disabled = isLoading;
   userInput.disabled = isLoading;
 }
 
 // Function to show error messages
 function showError(message) {
-  const errorDiv = document.createElement("div");
-  errorDiv.className = "error-message";
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'error-message';
   errorDiv.textContent = `⚠️ Error: ${message}`;
   chatDisplay.appendChild(errorDiv);
   chatDisplay.scrollTop = chatDisplay.scrollHeight;
@@ -58,18 +58,18 @@ function showError(message) {
 // Function to call the Hugging Face API
 async function getAIResponse(userMessage) {
   try {
-    let fullResponse = "";
+    let fullResponse = '';
 
     // Use the Hugging Face library with streaming
     const stream = hf.chatCompletionStream({
-      model: "Qwen/Qwen2.5-72B-Instruct",
-messages: [
-  { 
-    role: "system", 
-    content: "You are a helpful homework assistant for high school students. Provide clear, educational explanations that help students learn. Keep responses concise and encouraging."
-  },
-  { role: "user", content: userMessage }
-],
+      model: 'Qwen/Qwen2.5-72B-Instruct',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a helpful homework assistant for high school students. Provide clear, educational explanations that help students learn. Keep responses concise and encouraging.'
+        },
+        { role: 'user', content: userMessage }
+      ],
       max_tokens: 250,
       temperature: 0.7,
     });
@@ -84,17 +84,18 @@ messages: [
       }
     }
 
-    return fullResponse || "No response generated.";
+    return fullResponse || 'No response generated.';
+
   } catch (error) {
-    console.error("Error calling AI API:", error);
+    console.error('Error calling AI API:', error);
 
     // Provide helpful error messages
-    if (error.message.includes("API key")) {
+    if (error.message.includes('API key')) {
       throw new Error(
-        "Invalid API key. Please check your .env file and make sure VITE_HF_API_KEY is set correctly."
+        'Invalid API key. Please check your .env file and make sure VITE_HF_API_KEY is set correctly.'
       );
-    } else if (error.message.includes("loading")) {
-      throw new Error("Model is loading. Please wait a moment and try again.");
+    } else if (error.message.includes('loading')) {
+      throw new Error('Model is loading. Please wait a moment and try again.');
     } else {
       throw new Error(`Failed to get AI response: ${error.message}`);
     }
@@ -111,7 +112,7 @@ async function handleSendMessage() {
   // Check if API key is set
   if (!API_KEY) {
     showError(
-      "API key not found! Make sure you created a .env file with VITE_HF_API_KEY."
+      'API key not found! Make sure you created a .env file with VITE_HF_API_KEY.'
     );
     return;
   }
@@ -120,7 +121,7 @@ async function handleSendMessage() {
   addMessage(message, true);
 
   // Clear input
-  userInput.value = "";
+  userInput.value = '';
 
   // Show loading state
   setLoading(true);
@@ -131,6 +132,7 @@ async function handleSendMessage() {
 
     // Add AI response to chat
     addMessage(aiResponse, false);
+
   } catch (error) {
     showError(error.message);
   } finally {
@@ -147,11 +149,11 @@ async function handleSendMessage() {
 // ============================================
 
 // Send button click
-sendButton.addEventListener("click", handleSendMessage);
+sendButton.addEventListener('click', handleSendMessage);
 
 // Enter key in textarea (Shift+Enter for new line)
-userInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter" && !event.shiftKey) {
+userInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && !event.shiftKey) {
     event.preventDefault();
     handleSendMessage();
   }
@@ -162,10 +164,10 @@ userInput.focus();
 
 // Remove the welcome message when first message is sent
 chatDisplay.addEventListener(
-  "DOMNodeInserted",
+  'DOMNodeInserted',
   function () {
-    const welcomeMsg = chatDisplay.querySelector(".welcome-message");
-    const messages = chatDisplay.querySelectorAll(".message");
+    const welcomeMsg = chatDisplay.querySelector('.welcome-message');
+    const messages = chatDisplay.querySelectorAll('.message');
     if (welcomeMsg && messages.length > 0) {
       welcomeMsg.remove();
     }

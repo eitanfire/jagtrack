@@ -15,7 +15,7 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
-    "@huggingface/inference": "^4.13.3",
+    "@huggingface/inference": "^4.13.4",
     "@mantine/core": "^8.3.8",
     "@mantine/hooks": "^8.3.8",
     "bootstrap": "^4.5.2",

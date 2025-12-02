@@ -199,3 +199,51 @@ h1 {
 .template-button:active {
   background: #1d4ed8;
 }
+
+/* ===== NAVBAR STYLES ===== */
+
+
+.navbar {
+ background: linear-gradient(135deg, var(--jag-black) 0%, #222222 100%);
+ padding: 0.5rem 1rem;
+}
+
+
+.navbar-brand {
+ font-size: 1.5rem;
+ font-weight: bold;
+ color: var(--jag-gold) !important;
+}
+
+
+.navbar-brand img {
+ margin-right: 10px;
+}
+
+
+.nav-link {
+ color: var(--text-light) !important;
+ font-weight: 500;
+ margin: 0 10px;
+ transition: color 0.3s ease;
+}
+
+
+.nav-link:hover {
+ color: var(--jag-gold) !important;
+}
+
+
+.navbar-toggler {
+ border-color: var(--jag-gold);
+}
+
+
+body {
+ padding-top: 56px;
+}
+
+
+.jumbotron {
+ margin-top: 0;
+}
